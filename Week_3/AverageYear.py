@@ -3,8 +3,9 @@ Contains the classes:
     - AverageYear
 '''
 import numpy as np
+import Observer
 
-class AverageYear():
+class AverageYear(Observer):
     '''
     Has method: average_anomaly() which returns the average anomaly over the 5 years that are 
     provided by the reader class
@@ -15,4 +16,7 @@ class AverageYear():
 
     
     def average_anomaly(self):
+        pass
+
+    def update(self):
         pass

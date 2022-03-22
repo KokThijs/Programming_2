@@ -17,6 +17,7 @@ class Reader(CsvConverter):
         self.cached_lines = []
         self.current_line = 1
         self.total_lines = 0
+        self.observers = set()
 
     def get_lines(self):
         '''
@@ -42,6 +43,19 @@ class Reader(CsvConverter):
         # get next 5 lines and convert them to json as well
         self.csv_to_json(self.cached_lines)
 
+    def add_observer(self, other):
+        self.observers.add(other)
+
+    def remove_observer(self, other):
+        try: 
+            self.observers.remove(other)
+        except KeyError:
+            self.observers = self.observers
+
+    def notify_observers(self):
+        for observer in self.observers:
+            observer.update()
+
 def main():
     file = Reader(FILEPATH)
     file.get_lines() # get line 2 to 7
@@ -50,7 +64,7 @@ def main():
     file.get_lines() # etc
     file.get_lines() # etc
     file.get_lines() # etc
-    print(len(FILEPATH))
+    
     # file.write_to_file() # write all the cached json to an output file
 
 if __name__ == '__main__':
