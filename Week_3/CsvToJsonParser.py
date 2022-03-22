@@ -2,9 +2,8 @@
 main file to read the csv and convert to json
 '''
 import linecache
-from CsvConverter import CsvConverter
 
-import json
+from CsvConverter import CsvConverter
 
 FILEPATH = 'dSST.csv'
 
@@ -51,7 +50,8 @@ def main():
     file.get_lines() # etc
     file.get_lines() # etc
     file.get_lines() # etc
-    file.write_to_file() # write all the cached json to an output file
+    print(len(FILEPATH))
+    # file.write_to_file() # write all the cached json to an output file
 
 if __name__ == '__main__':
     main()

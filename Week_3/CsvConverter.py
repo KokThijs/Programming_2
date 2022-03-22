@@ -8,8 +8,8 @@ class CsvConverter():
     Converts Csv to JSON and write to file
     '''
     def __init__(self, header):
-
         self.header = header
+
 
     def csv_to_json(self, data_lines):
         '''
@@ -21,12 +21,11 @@ class CsvConverter():
         for line in self.data:
             if len(self.header.split(',')) != len(line.split(',')):
                 raise ValueError('the amount of headers is not equal to the datacolumns')
-
             else:
                 json_file.append(dict(zip(self.header.split(','), [float(x) for x in line.split(',')])))
-                
         self.json_file = json_file
-        
+
+
     def write_to_file(self, output_name = 'dSST.json'):
         '''
         Writes the json data to a file

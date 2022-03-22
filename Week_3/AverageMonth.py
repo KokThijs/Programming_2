@@ -1,0 +1,5 @@
+'''
+Contains the class: 
+    - AverageMonth
+'''
+
