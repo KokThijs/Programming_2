@@ -1,6 +1,5 @@
 from bin.summing import *
 
-
 def test_sum():
     assert simple_sum(3,3) == 6, 'should be 6'
 
